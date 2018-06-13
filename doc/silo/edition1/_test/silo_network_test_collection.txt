@@ -1,0 +1,79 @@
+
+silo netwrok test collocation
+
+
+silo network test no interfere
+cpu: intel i9-7960x closing hyperthread.
+os: ubuntu16.04  linux4.13.0
+
+QPS    MAXREQS    cpu load(%)    95th latency(ms)    max latency(ms)
+2000   200000     15             0.317               29.366
+
+4000   400000     30             0.417               25.420
+
+6000   600000     45             5.656               1158.200
+
+
+silo network test interfere cache
+cpu: intel i9-7960x  closing hyperthread
+os:  ubuntu16.04  linux4.13.0
+interfere: interfere_cache_random * 7
+
+QPS    MAXREQS    cpu load(%)    95th latency(ms)    max latency(ms)
+2000   200000     15             0.338               21.066
+
+4000   400000     30             0.581               29.716
+
+6000   600000     50             11.475              1095.448
+
+
+silo network test interfere cache 1
+cpu: intel i9-7960x  closing hyperthread
+os: ubuntu16.04  linux4.13.0
+interfere: interfere_cache_random * 15
+
+QPS    MAXREQS    cpu load(%)    95th latency(ms)    max latency(ms)
+2000   200000     25             0.529               29.759
+
+4000   400000     40             6.222               29.858
+
+6000   600000     55             15.308              1033.760
+
+
+silo network test interfere network
+cpu: intel i9-7960x  closing hyperthread
+os: ubuntu16.04  linux4.13.0
+interfere: iperf
+
+QPS    MAXREQS    cpu load(%)    95th latency(ms)    max latency(ms)
+2000   200000     15             0.459               29.514
+
+4000   400000     30             0.577               29.618
+
+6000   600000     45             6.821               1053.816
+
+
+silo network test no interfere
+cpu: intel i7-6700
+os: ubuntu16.04  linux4.13.0
+
+QPS    MAXREQS    cpu load(%)    95th latency(ms)    max latency(ms)
+2000   200000     15             0.560               24.245
+
+4000   400000     25             0.575               26.513
+
+6000   600000     35             1.424               104.519
+
+
+silo network test interfere hyperthread
+cpu: intel i7-6700
+os: ubuntu16.04  linux4.13.0
+interfere: interfere_cache_random on the same physical core
+
+QPS    MAXREQS    cpu load(%)    95th latency(ms)    max latency(ms)
+2000   200000     20             0.504               20.290
+
+4000   400000     35             2.394               23.297
+
+6000   600000     55             13.416              1826.231
+

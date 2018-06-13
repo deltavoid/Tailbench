@@ -1,0 +1,43 @@
+
+
+xapian 使用说明
+
+1. 集成模式
+
+    sudo ./run.sh#运行集成配置
+    ./parse.sh#解析运行结果
+
+
+
+2. loopback模式
+
+    sudo ./run_networked.sh#运行loopback配置
+    ./parse.sh
+
+
+3. network模式
+
+    服务器：sudo ./run_server.sh
+    客户机：sudo ./run_client.sh
+    在服务器显示运行结束后：sudo ./kill_networked.sh
+    在客户机上解析结果：parse.sh
+
+
+loopback模式与network模式解析
+
+    loopback模式与network模式本质上是一样的，都是客户端进程与服务器进程进行通信。
+    但是loopback使用本地回环端口通信，因此运行在同一个机器上，
+    network模式使用网络进行通信，服务器进程运行在一台机器上，客户端进程运行在另一台机器上（可以有多个客户端运行在多台机器上）。
+
+    loopback模式的使用流程已经封装在run_networked.sh中：
+        首先启动服务器进程，然后暂停5秒等待服务器启动完成；
+        然后启动客户端进程，此时使用默认服务器（localhost）；
+        等待客户端完成；
+        最后杀死服务进程并清理相关文件。
+
+    使用network模式时需要手动模拟上述流程：
+        首先在服务机上启动服务进程；
+        然后在客户机上启动客户进程；
+        等待测试完成；
+        在服务机上杀死服务进程，在客户机上杀死客户进程；
+        在客户机上解析结果。

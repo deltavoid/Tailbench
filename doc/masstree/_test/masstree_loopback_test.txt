@@ -1,0 +1,22 @@
+
+masstree loopback test 
+
+CPU: intel i7-6700 closing hyperthread and C States, pin frequency to 3.4GHz
+OS: Ubuntu 16.04  Linux4.13.0
+server was pinned to core0, client was pinned to core3
+
+
+
+QPS    MAXREQS    CPU load(%)    95th latency(ms)    max latency(ms)
+400    40000      15             0.804               2.405
+                                 0.806               2.354
+800    80000      30             1.038               3.416
+                                 1.035               3.426
+1200   120000     45             1.364               4.812
+                                 1.362               4.799
+1600   160000     60             1.945               7.007
+                                 1.954               8.556
+2000   200000     75             3.049               12.641
+                                 3.053               20.722
+
+

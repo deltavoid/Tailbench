@@ -1,0 +1,17 @@
+
+silo loopback test no interfere on 7960x
+
+cpu: intel i9-7960x closing hpyerthread, pin frequency to 3.6GHz
+os: ubuntu16.04  linux4.13.0
+
+
+QPS    MAXREQS    cpu load(%)    95th latency(ms)    max latency(ms)
+2000   200000     0              4.191               1358.179
+                                 4.620               1359.722
+4000   400000     0              248.741             1357.442
+                                 303.238             1354.875
+6000   600000     5              527.833             1397.513
+                                 513.109             1394.316
+
+
+

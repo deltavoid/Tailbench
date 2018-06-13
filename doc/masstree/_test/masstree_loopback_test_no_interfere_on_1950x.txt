@@ -1,0 +1,18 @@
+
+masstree loopback test no interfere on 1950x
+
+cpu: amd 1950x  closing smt(hyperthread)
+os: ubuntu16.04  linux4.13.0
+
+
+QPS    MAXREQS    cpu load(%)    95th latency(ms)    max latency(ms)
+
+400    40000      15             0.686               1.516
+                                 0.685               1.596
+800    80000      30             0.738               2.373
+                                 0.854               2.610                                 
+1200   120000     45             1.100               3.445
+                                 1.097               3.185
+1600   160000     60             1.477               6.165
+                                 1.479               7.146
+ 

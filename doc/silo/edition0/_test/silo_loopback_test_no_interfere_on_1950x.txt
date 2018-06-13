@@ -1,0 +1,13 @@
+
+silo loopback test no interfere on 1950x
+
+cpu: amd 1950x closing SMT
+os: ubuntu16.04 linux4.13.0
+
+
+QPS    MAXREQS    cpu load(%)    95th latency(ms)    max latency(ms)
+2000   200000     10             0.239               20.193
+4000   400000     20             0.308               26.500
+6000   600000     30             3.682               513.026
+8000   800000     40             10.033              1268.580
+                                                     

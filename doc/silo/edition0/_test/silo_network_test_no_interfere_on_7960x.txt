@@ -1,0 +1,15 @@
+
+silo network test no interfere on 7960x
+
+cpu: intel i9-7960x    closing hyperthread, ping frequency to 3.6GHz
+os: ubuntu16.04  linux4.13.0
+
+
+QPS    MAXREQS    cpu load(%)    95th latency(ms)    max latency(ms)
+2000   200000     15             0.282               17.090
+                                 0.294               29.366
+4000   400000     30             0.372               17.207
+                                 0.371               25.313
+6000   600000     45             
+
+

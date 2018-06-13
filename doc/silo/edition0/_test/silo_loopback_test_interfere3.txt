@@ -1,0 +1,97 @@
+
+
+silo loopback test
+
+CPU intel 7300HQ 四核四线程  
+OS Ubuntu16.04 Linux4.13.0
+
+
+QPS=2000    REQUESTS=40000    THREAD=1    CPU freq=3.0GHz    CPU load=20%    no interfere
+    95th percentile latency 0.615 ms | max latency 18.603 ms
+
+    22,683,936,944      cycles                                                        (36.85%)
+    11,100,151,190      instructions              #    0.49  insn per cycle           (49.87%)
+     1,720,709,234      cache-references                                              (63.11%)
+       183,858,442      cache-misses              #   10.685 % of all cache refs      (75.75%)
+        37,034,669      LLC-loads                                                     (75.74%)
+         7,885,508      LLC-load-misses           #   21.29% of all LL-cache hits     (75.86%)
+       990,381,155      LLC-stores                                                    (24.27%)
+        37,145,639      LLC-store-misses                                              (24.34%)
+
+      34.889221797 seconds time elapsed  
+
+QPS=2000    REQUESTS=40000    THREAD=1    CPU freq=3.0GHz    CPU load=20%    cache interfere
+    95th percentile latency 0.595 ms | max latency 16.366 ms
+
+    24,265,008,956      cycles                                                        (37.87%)
+    11,154,246,567      instructions              #    0.46  insn per cycle           (50.56%)
+     1,745,312,133      cache-references                                              (62.83%)
+       292,555,851      cache-misses              #   16.762 % of all cache refs      (74.87%)
+        38,488,597      LLC-loads                                                     (74.74%)
+        11,516,878      LLC-load-misses           #   29.92% of all LL-cache hits     (74.98%)
+       988,420,253      LLC-stores                                                    (25.30%)
+        74,567,069      LLC-store-misses                                              (25.13%)
+
+      34.889809657 seconds time elapsed
+
+
+QPS=2000    REQUESTS=20000    THREAD=1    CPU freq=3.0GHz    CPU load=25%    cache interfere * 2
+    95th percentile latency 0.966 ms | max latency 20.552 ms
+
+    26,303,498,137      cycles                                                        (36.83%)
+    11,530,776,005      instructions              #    0.44  insn per cycle           (49.18%)
+     1,686,225,381      cache-references                                              (61.68%)
+       375,788,226      cache-misses              #   22.286 % of all cache refs      (74.48%)
+        37,692,759      LLC-loads                                                     (74.80%)
+        13,323,155      LLC-load-misses           #   35.35% of all LL-cache hits     (74.93%)
+     1,036,625,862      LLC-stores                                                    (25.21%)
+       151,160,324      LLC-store-misses                                              (25.19%)
+
+      34.897260410 seconds time elapsed    
+  
+
+QPS=2000    REQUESTS=20000    THREAD=1    CPU freq=3.0GHz    CPU load=20%    CPU interfere
+    95th percentile latency 0.656 ms | max latency 16.706 ms                                             (24.35%)
+  
+    22,625,328,007      cycles                                                        (37.39%)
+    11,224,835,221      instructions              #    0.50  insn per cycle           (49.98%)
+     1,743,288,082      cache-references                                              (62.85%)
+       157,736,060      cache-misses              #    9.048 % of all cache refs      (75.65%)
+        37,801,271      LLC-loads                                                     (75.12%)
+         7,418,945      LLC-load-misses           #   19.63% of all LL-cache hits     (74.81%)
+       977,564,426      LLC-stores                                                    (24.90%)
+        24,647,867      LLC-store-misses                                              (25.43%)
+
+      34.899227718 seconds time elapsed
+
+QPS=2000    REQUESTS=20000    THREAD=1    CPU freq=3.0GHz    CPU load=20%    CPU interfere * 2
+    95th percentile latency 0.726 ms | max latency 21.306 ms
+
+    23,259,086,235      cycles                                                        (37.85%)
+    11,525,565,411      instructions              #    0.50  insn per cycle           (50.27%)
+     1,716,265,728      cache-references                                              (62.39%)
+       145,237,249      cache-misses              #    8.462 % of all cache refs      (74.46%)
+        36,632,185      LLC-loads                                                     (74.68%)
+         7,028,417      LLC-load-misses           #   19.19% of all LL-cache hits     (74.92%)
+       990,944,040      LLC-stores                                                    (25.34%)
+        17,553,564      LLC-store-misses                                              (25.19%)
+
+      34.903798517 seconds time elapsed
+
+QPS=2000    REQUESTS=20000    THREAD=1    CPU freq=3.0GHz    CPU load=25%    cache interfere + CPU interfere
+    95th percentile latency 0.813 ms | max latency 19.499 ms
+
+    24,869,992,903      cycles                                                        (37.57%)
+    11,726,458,165      instructions              #    0.47  insn per cycle           (50.31%)
+     1,767,476,924      cache-references                                              (62.64%)
+       313,926,059      cache-misses              #   17.761 % of all cache refs      (75.09%)
+        38,119,348      LLC-loads                                                     (75.55%)
+        11,288,535      LLC-load-misses           #   29.61% of all LL-cache hits     (75.73%)
+       999,421,134      LLC-stores                                                    (24.47%)
+        96,989,618      LLC-store-misses                                              (24.44%)
+
+      34.902374023 seconds time elapsed
+
+
+
+

@@ -1,0 +1,96 @@
+
+
+silo loopback test
+
+CPU intel 6700 closing hyperthread and C states
+OS Ubuntu16.04 Linux4.13.0
+
+
+QPS=2000    REQUESTS=200000    THREAD=1    CPU freq=3.4GHz    CPU load=15%    no interfere
+    95th percentile latency 0.448 ms | max latency 20.036 ms
+
+    56,442,321,550      cycles                                                        (37.41%)
+    24,281,341,660      instructions              #    0.43  insn per cycle           (49.42%)
+     6,426,201,489      cache-references                                              (61.99%)
+       380,864,960      cache-misses              #    5.927 % of all cache refs      (74.19%)
+       140,122,147      LLC-loads                                                     (74.70%)
+        19,108,515      LLC-load-misses           #   13.64% of all LL-cache hits     (75.15%)
+     3,729,071,186      LLC-stores                                                    (25.30%)
+        53,867,410      LLC-store-misses                                              (24.95%)
+
+     114.841347294 seconds time elapsed    
+
+QPS=2000    REQUESTS=200000    THREAD=1    CPU freq=3.4GHz    CPU load=15%    cache interfere
+    95th percentile latency 0.432 ms | max latency 26.723 ms
+
+    62,636,823,569      cycles                                                        (37.36%)
+    24,065,123,390      instructions              #    0.38  insn per cycle           (49.92%)
+     6,456,710,081      cache-references                                              (61.99%)
+       792,198,591      cache-misses              #   12.269 % of all cache refs      (74.51%)
+       142,651,610      LLC-loads                                                     (75.04%)
+        36,132,439      LLC-load-misses           #   25.33% of all LL-cache hits     (75.30%)
+     3,633,580,324      LLC-stores                                                    (24.99%)
+       129,452,650      LLC-store-misses                                              (24.81%)
+
+     114.847345843 seconds time elapsed    
+
+QPS=2000    REQUESTS=200000    THREAD=1    CPU freq=3.4GHz    CPU load=20%    cache interfere * 2
+    95th percentile latency 0.609 ms | max latency 34.016 ms
+
+    66,351,608,858      cycles                                                        (37.65%)
+    24,383,950,365      instructions              #    0.37  insn per cycle           (50.29%)
+     6,393,833,478      cache-references                                              (63.14%)
+       872,750,383      cache-misses              #   13.650 % of all cache refs      (75.43%)
+       140,403,028      LLC-loads                                                     (74.78%)
+        39,134,643      LLC-load-misses           #   27.87% of all LL-cache hits     (74.69%)
+     3,741,395,334      LLC-stores                                                    (25.23%)
+       158,204,360      LLC-store-misses                                              (25.39%)
+
+     114.857503963 seconds time elapsed     
+
+
+QPS=2000    REQUESTS=200000    THREAD=1    CPU freq=3.4GHz    CPU load=15%    CPU interfere
+    95th percentile latency 0.433 ms | max latency 20.720 ms
+
+    57,163,922,050      cycles                                                        (37.91%)
+    24,808,457,744      instructions              #    0.43  insn per cycle           (49.57%)
+     6,531,420,170      cache-references                                              (62.13%)
+       395,468,450      cache-misses              #    6.055 % of all cache refs      (74.59%)
+       138,297,804      LLC-loads                                                     (73.29%)
+        19,478,441      LLC-load-misses           #   14.08% of all LL-cache hits     (74.50%)
+     3,742,944,406      LLC-stores                                                    (26.72%)
+        59,585,216      LLC-store-misses                                              (25.55%)
+
+     114.856204906 seconds time elapsed    
+
+QPS=2000    REQUESTS=200000    THREAD=1    CPU freq=    CPU load=    CPU interfere * 2
+    95th percentile latency 0.413 ms | max latency 41.089 ms
+
+    56,326,816,803      cycles                                                        (37.98%)
+    24,375,494,134      instructions              #    0.43  insn per cycle           (49.83%)
+     6,397,539,561      cache-references                                              (62.57%)
+       315,906,134      cache-misses              #    4.938 % of all cache refs      (75.09%)
+       135,393,332      LLC-loads                                                     (74.64%)
+        16,922,271      LLC-load-misses           #   12.50% of all LL-cache hits     (74.86%)
+     3,769,438,686      LLC-stores                                                    (25.39%)
+        26,546,391      LLC-store-misses                                              (25.21%)
+
+     114.863377186 seconds time elapsed    
+
+
+QPS=2000    REQUESTS=200000    THREAD=1    CPU freq=3.4GHz    CPU load=20%    cache interfere + CPU interfere
+    95th percentile latency 0.514 ms | max latency 26.745 ms
+
+    63,131,153,267      cycles                                                        (38.51%)
+    24,637,978,270      instructions              #    0.39  insn per cycle           (50.47%)
+     6,490,388,969      cache-references                                              (63.46%)
+       777,598,212      cache-misses              #   11.981 % of all cache refs      (75.46%)
+       139,266,863      LLC-loads                                                     (75.13%)
+        34,856,372      LLC-load-misses           #   25.03% of all LL-cache hits     (74.70%)
+     3,684,673,579      LLC-stores                                                    (24.89%)
+       119,119,277      LLC-store-misses                                              (25.33%)
+
+     114.854978334 seconds time elapsed
+
+
+

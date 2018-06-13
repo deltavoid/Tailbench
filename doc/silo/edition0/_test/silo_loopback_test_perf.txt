@@ -1,0 +1,150 @@
+
+
+silo loopback test 
+
+
+
+QPS=1000    REQUESTS=100000    CPU=30    THREAD=1
+    95th percentile latency 1.725 ms | max latency 26.148 ms
+
+    33,959,164,058      cycles                                                        (37.89%)
+    16,327,798,702      instructions              #    0.48  insn per cycle           (50.23%)
+     3,528,909,302      cache-references                                              (62.63%)
+       300,815,092      cache-misses              #    8.524 % of all cache refs      (74.98%)
+        75,836,576      LLC-loads                                                     (75.13%)
+        12,497,294      LLC-load-misses           #   16.48% of all LL-cache hits     (75.00%)
+     1,998,560,443      LLC-stores                                                    (24.89%)
+        71,913,985      LLC-store-misses                                              (25.04%)
+
+     124.792804784 seconds time elapsed
+
+QPS=2000    REQUESTS=200000    CPU=35    THREAD=1
+    95th percentile latency 2.454 ms | max latency 23.014 ms
+
+    52,274,415,172      cycles                                                        (38.55%)
+    24,117,413,209      instructions              #    0.46  insn per cycle           (50.99%)
+     6,138,761,098      cache-references                                              (63.31%)
+       456,371,266      cache-misses              #    7.434 % of all cache refs      (75.53%)
+       126,721,055      LLC-loads                                                     (75.49%)
+        22,123,990      LLC-load-misses           #   17.46% of all LL-cache hits     (74.58%)
+     3,668,594,960      LLC-stores                                                    (24.52%)
+        70,435,803      LLC-store-misses                                              (25.46%)
+
+     114.859096901 seconds time elapsed
+
+QPS=3000    REQUESTS=300000    CPU=40    THREAD=1
+    95th percentile latency 3.272 ms | max latency 20.590 ms
+
+    72,944,092,598      cycles                                                        (37.26%)
+    32,856,012,697      instructions              #    0.45  insn per cycle           (49.84%)
+     8,612,180,411      cache-references                                              (62.78%)
+       715,302,920      cache-misses              #    8.306 % of all cache refs      (75.24%)
+       176,512,631      LLC-loads                                                     (75.32%)
+        35,083,732      LLC-load-misses           #   19.88% of all LL-cache hits     (75.50%)
+     5,289,828,785      LLC-stores                                                    (24.69%)
+       110,995,651      LLC-store-misses                                              (24.53%)
+
+     111.555000127 seconds time elapsed    
+
+
+QPS=4000    REQUESTS=400000    CPU=45    THREAD=1
+    95th percentile latency 4.964 ms | max latency 26.530 ms
+
+    88,219,394,289      cycles                                                        (37.16%)
+    40,219,755,054      instructions              #    0.46  insn per cycle           (49.62%)
+    10,707,434,290      cache-references                                              (62.38%)
+       876,067,671      cache-misses              #    8.182 % of all cache refs      (74.76%)
+       210,438,589      LLC-loads                                                     (75.26%)
+        45,334,113      LLC-load-misses           #   21.54% of all LL-cache hits     (75.20%)
+     6,965,233,773      LLC-stores                                                    (24.74%)
+       101,417,154      LLC-store-misses                                              (24.83%)
+
+     109.868371974 seconds time elapsed
+
+
+QPS=5000    REQUESTS=500000    CPU=55    THREAD=1
+    95th percentile latency 6.737 ms | max latency 215.238 ms
+
+   106,702,879,458      cycles                                                        (37.02%)
+    48,194,237,962      instructions              #    0.45  insn per cycle           (49.53%)
+    12,960,418,414      cache-references                                              (62.13%)
+       952,644,278      cache-misses              #    7.350 % of all cache refs      (74.87%)
+       254,549,414      LLC-loads                                                     (75.06%)
+        52,722,138      LLC-load-misses           #   20.71% of all LL-cache hits     (75.36%)
+     8,683,950,132      LLC-stores                                                    (24.94%)
+        70,305,120      LLC-store-misses                                              (24.65%)
+
+     109.025629238 seconds time elapsed    
+
+
+
+QPS=6000    REQUESTS=600000    CPU=55    THREAD=1
+    95th percentile latency 8.563 ms | max latency 830.748 ms
+
+   123,431,721,504      cycles                                                        (37.87%)
+    56,654,731,171      instructions              #    0.46  insn per cycle           (50.43%)
+    15,089,899,523      cache-references                                              (62.61%)
+     1,079,135,464      cache-misses              #    7.151 % of all cache refs      (75.34%)
+       283,426,141      LLC-loads                                                     (75.16%)
+        61,223,886      LLC-load-misses           #   21.60% of all LL-cache hits     (75.01%)
+    10,323,973,074      LLC-stores                                                    (24.85%)
+        59,558,837      LLC-store-misses                                              (25.01%)
+
+     108.442909336 seconds time elapsed
+
+QPS=7000    REQUESTS=700000    CPU=55    THREAD=1
+    95th percentile latency 10.533 ms | max latency 1379.190 ms
+
+    146,416,084,991      cycles                                                        (37.52%)
+    64,665,963,426      instructions              #    0.44  insn per cycle           (50.08%)
+    17,069,045,670      cache-references                                              (62.80%)
+     1,353,373,728      cache-misses              #    7.929 % of all cache refs      (75.16%)
+       311,861,235      LLC-loads                                                     (75.03%)
+        76,736,606      LLC-load-misses           #   24.61% of all LL-cache hits     (75.12%)
+    12,142,514,567      LLC-stores                                                    (24.98%)
+       102,471,146      LLC-store-misses                                              (24.90%)
+
+     108.019995850 seconds time elapsed
+
+QPS=8000    REQUESTS=800000    CPU=60     THREAD=1
+    95th percentile latency 13.769 ms | max latency 1757.284 ms
+
+    165,213,622,804      cycles                                                        (37.42%)
+    72,885,563,479      instructions              #    0.44  insn per cycle           (49.98%)
+    19,210,942,050      cache-references                                              (62.60%)
+     1,499,404,142      cache-misses              #    7.805 % of all cache refs      (74.96%)
+       353,050,121      LLC-loads                                                     (74.89%)
+        87,531,812      LLC-load-misses           #   24.79% of all LL-cache hits     (75.05%)
+    13,599,871,359      LLC-stores                                                    (25.11%)
+        87,966,322      LLC-store-misses                                              (24.98%)
+
+     107.655600352 seconds time elapsed    
+
+QPS=9000    REQUESTS=900000    CPU=60    THREAD=1
+    95th percentile latency 104.381 ms | max latency 1963.165 ms
+  
+   189,416,682,087      cycles                                                        (37.68%)
+    80,911,191,568      instructions              #    0.43  insn per cycle           (49.77%)
+    21,095,690,831      cache-references                                              (62.31%)
+     1,740,895,900      cache-misses              #    8.252 % of all cache refs      (74.79%)
+       378,204,442      LLC-loads                                                     (75.16%)
+       102,903,284      LLC-load-misses           #   27.21% of all LL-cache hits     (74.92%)
+    15,382,124,769      LLC-stores                                                    (24.85%)
+       113,013,366      LLC-store-misses                                              (25.11%)
+
+     107.393810256 seconds time elapsed
+
+QPS=10000    REQUESTS=1000000    CPU=65    THREAD=1
+    95th percentile latency 844.412 ms | max latency 2312.825 ms
+
+   215,730,591,209      cycles                                                        (37.67%)
+    88,685,177,672      instructions              #    0.41  insn per cycle           (50.34%)
+    23,050,913,980      cache-references                                              (62.76%)
+     1,918,590,731      cache-misses              #    8.323 % of all cache refs      (75.13%)
+       400,871,077      LLC-loads                                                     (75.21%)
+       116,837,007      LLC-load-misses           #   29.15% of all LL-cache hits     (74.94%)
+    16,957,832,247      LLC-stores                                                    (24.80%)
+       112,672,632      LLC-store-misses                                              (25.08%)
+
+     107.169567486 seconds time elapsed    
+

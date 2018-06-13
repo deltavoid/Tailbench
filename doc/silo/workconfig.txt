@@ -1,0 +1,5 @@
+
+建议
+    server: 网线直连ssh
+    client: 图形界面
+

@@ -1,0 +1,17 @@
+
+
+silo network test interfere network
+
+cpu: intel i9-7960x  closing hyperthread
+os: ubuntu16.04  linux4.13.0
+interfere: iperf
+
+
+QPS    MAXREQS    cpu load(%)    95th latency(ms)    max latency(ms)
+2000   200000     15             0.459               29.514
+
+4000   400000     30             0.577               29.618
+
+6000   600000     45             6.821               1053.816
+
+

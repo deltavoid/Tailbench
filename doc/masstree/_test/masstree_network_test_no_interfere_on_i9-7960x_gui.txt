@@ -1,0 +1,14 @@
+
+masstreee network test no interfere on i9-7960x gui
+
+cpu: intel i9-7960x  closing hyperthread, pin frequency to 3.6GHz
+os: ubuntu16.04  linux4.13.0
+server process is pinned to core0
+
+
+QPS    MAXREQS    cpu load(%)    95th latency(ms)    max latency(ms)
+40     4000       2              0.758               1.090
+                                 0.752               1.200
+80     8000       4              0.834               1.244
+                                 0.752               1.330
+    

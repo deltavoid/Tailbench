@@ -1,0 +1,131 @@
+
+masstree测试报告 2018.03.22
+张乾宇
+
+
+近期主要进行masstree的测试，碰到了一些问题和奇怪的现象。
+
+
+一、Intel i7-6700上的测试情况
+
+在Intel i7-6700上共进行了三种测试：loopback无干扰测试，loopback缓存干扰测试，network无干扰测试，network缓存干扰测试尚未进行。
+测试结果如下：
+
+masstree loopback test 
+CPU: intel i7-6700 closing hyperthread and C States, pin frequency to 3.4GHz
+OS: Ubuntu 16.04  Linux4.13.0
+server was pinned to core0, client was pinned to core3
+
+QPS    MAXREQS    CPU load(%)    95th latency(ms)    max latency(ms)
+400    40000      15             0.804               2.405
+                                 0.806               2.354
+800    80000      30             1.038               3.416
+                                 1.035               3.426
+1200   120000     45             1.364               4.812
+                                 1.362               4.799
+1600   160000     60             1.945               7.007
+                                 1.954               8.556
+2000   200000     75             3.049               12.641
+                                 3.053               20.722
+
+masstree loopback test interfere cache 
+CPU: intel i7-6700 closing hyperthread and C States, pin frequency to 3.4GHz
+OS: Ubuntu 16.04  Linux4.13.0
+server was pinned to core0, client was pinned to core3
+two interfere_cache are pinned to core1 and core2
+
+QPS    MAXREQS    CPU load(%)    95th latency(ms)    max latency(ms)
+400    40000      20             0.875               2.517
+                                 0.876               2.497
+800    80000      35             1.138               4.563
+                                 1.130               3.564
+1200   120000     50             1.598               6.163
+                                 1.630               6.778
+1600   160000     65             2.404               10.306
+                                 2.387               11.954
+2000   200000     80             4.299               52.033
+                                 4.263               34.213
+
+masstree network test no interfere
+server:
+CPU: intel 6700 closing hyperthread and C States, pin frequency to 3.4GHz
+OS: Ubuntu16.04 linux4.13.0
+
+QPS    MAXREQS    CPU load(%)    rxKB/s    txKB/s     95th latency(ms)    max latency(ms)
+50     5000       2              535.57    8.33       2.447               4.850
+                                 534.08    8.31       2.442               4.772
+100    10000      4              1047.80   16.32      2.466               8.213
+                                 1048.86   16.33      2.528               8.397
+150    15000      6              1568.04   24.42      3.566               14.259
+                                 1567.62   24.73      3.580               14.035
+200    20000      8              2098.98   32.69      3.839               17.779
+                                 2094.61   32.82      3.752               17.470
+250    25000      10             2622.82   42.29      4.734               21.016
+                                 2615.43   41.02      4.736               21.018
+300    30000      12             3185.41   50.66      6.022               22.150
+                                 3138.68   49.16      5.961               22.099
+
+分析loopback无干扰测试可以看出当QPS<=1600时，尾延迟增长较为缓慢，当QPS=2000时，尾延迟有了一个飞跃，这个趋势与论文是相符的。
+
+将loopback无干扰测试与缓存干扰测试进行简单对比有如下结果：
+QPS                    400     800     1200    1600    2000
+no interfere(ms)       0.804   1.038   1.364   1.945   3.049
+interfere cache(ms)    0.875   1.138   1.598   2.404   4.299
+                       8%      9%      17%     23%     40%
+从上表可以看出在QPS较大时，缓存干扰效果较为显著。
+
+分析network无干扰测试可以看出尾延迟依然保持了前期增长较为缓慢，后期剧烈增长的趋势。
+但与loopback无干扰测试对比，一个非常显著的问题是network模式下所能承载的最大QPS比loopback模式下所能承载的最大QPS小了一个数量级，同时通过测试网络使用率可以发现最大传输速率约为3MB/s，远没有达到网卡的上限（实验所使用的是万兆光纤网卡），这是一个比较奇怪的问题，尚没有具体的原因和解释。
+
+
+二、Intel i9-7960x上的测试情况
+    
+在i9-7960x上遇到了比较大的问题，程序运行极不稳定，表现为运行时报网络错误，形如“ERROR! recvd=xxxxx, repected=xxxxx"，错误原因应是通信过程中接收到的序列号与期望的序列号不一致，程序判断出现错误，停止运行。
+
+开始时认为是ssh干扰了网络的使用，但使用图形界面后依然没有改善。
+
+经过长时间的调试依然没有找到错误原因，最后通过重新编译以及降低QPS使得程序可以运行。
+
+测试结果如下：
+
+masstree loopback test no interfere on i9-7960x
+cpu: intel i9-7960x  closing hyperthreading, pin frequency to 3.6GHz
+os:  ubuntu16.04  linux4.13.0
+server process is pinned to core0
+
+QPS    MAXREQS    cpu load(%)    95th latency(ms)    max latency(ms)
+400    40000      0              4.563               6.826
+                                 4.569               7.092
+800    80000      5              5.361               10.260
+                                 5.360               10.086
+1200   120000     20             6.914               14.032
+                                 6.901               19.009
+1600   160000     45             9.952               23.525
+                                 10.023              23.361
+
+QPS    MAXREQS    cpu load(%)    95th latency(ms)    max latency(ms)
+40     4000       0              4.279               4.940
+                                 4.262               4.929
+80     8000       0              4.245               5.330
+                                 4.259               5.28
+
+masstreee network test no interfere on i9-7960x gui
+cpu: intel i9-7960x  closing hyperthread, pin frequency to 3.6GHz
+os: ubuntu16.04  linux4.13.0
+server process is pinned to core0
+
+QPS    MAXREQS    cpu load(%)    95th latency(ms)    max latency(ms)
+40     4000       2              0.758               1.090
+                                 0.752               1.200
+80     8000       4              0.834               1.244
+                                 0.752               1.330
+
+loopback模式的测试结果较为正常。
+network模式将QPS降到了极低的数值，使得程序可以运行，何种原因影响了系统所能运行的最大QPS尚不清楚。
+另一个奇怪的问题是network模式测得的尾延迟低于loopback模式的尾延迟，具体原因尚不清楚。
+
+
+
+
+
+

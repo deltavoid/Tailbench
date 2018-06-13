@@ -1,0 +1,18 @@
+
+masstree loopback test no interfere on i9-7960x
+
+cpu: intel i9-7960x  closing hyperthreading, pin frequency to 3.6GHz
+os:  ubuntu16.04  linux4.13.0
+server process is pinned to core0
+
+
+QPS    MAXREQS    cpu load(%)    95th latency(ms)    max latency(ms)
+400    40000      0              4.563               6.826
+                                 4.569               7.092
+800    80000      5              5.361               10.260
+                                 5.360               10.086
+1200   120000     20             6.914               14.032
+                                 6.901               19.009
+1600   160000     45             9.952               23.525
+                                 10.023              23.361
+ 

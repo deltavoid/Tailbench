@@ -1,0 +1,23 @@
+
+masstree loopback test interfere cache 
+
+CPU: intel i7-6700 closing hyperthread and C States, pin frequency to 3.4GHz
+OS: Ubuntu 16.04  Linux4.13.0
+server was pinned to core0, client was pinned to core3
+two interfere_cache are pinned to core1 and core2
+
+
+QPS    MAXREQS    CPU load(%)    95th latency(ms)    max latency(ms)
+400    40000      20             0.875               2.517
+                                 0.876               2.497
+800    80000      35             1.138               4.563
+                                 1.130               3.564
+1200   120000     50             1.598               6.163
+                                 1.630               6.778
+1600   160000     65             2.404               10.306
+                                 2.387               11.954
+2000   200000     80             4.299               52.033
+                                 4.263               34.213
+
+
+

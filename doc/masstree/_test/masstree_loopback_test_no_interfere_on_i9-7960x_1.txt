@@ -1,0 +1,10 @@
+
+
+
+
+QPS    MAXREQS    cpu load(%)    95th latency(ms)    max latency(ms)
+40     4000       0              4.279               4.940
+                                 4.262               4.929
+80     8000       0              4.245               5.330
+                                 4.259               5.280
+

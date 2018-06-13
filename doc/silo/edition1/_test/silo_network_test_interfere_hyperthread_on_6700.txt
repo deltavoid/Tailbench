@@ -1,0 +1,14 @@
+
+silo network test interfere hyperthread
+
+cpu: intel i7-6700
+os: ubuntu16.04  linux4.13.0
+interfere: interfere_cache_random on the same physical core
+
+QPS    MAXREQS    cpu load(%)    95th latency(ms)    max latency(ms)
+2000   200000     20             0.504               20.290
+
+4000   400000     35             2.394               23.297
+
+6000   600000     55             13.416              1826.231
+

@@ -1,0 +1,18 @@
+
+
+silo network test no interfere
+
+cpu: intel i7-6700
+os: ubuntu16.04  linux4.13.0
+
+
+QPS    MAXREQS    cpu load(%)    95th latency(ms)    max latency(ms)
+2000   200000     15             0.560               24.245
+
+4000   400000     25             0.575               26.513
+
+6000   600000     35             1.424               104.519
+
+8000   80000      45             8.706               1118.727
+
+

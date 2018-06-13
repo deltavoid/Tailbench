@@ -1,0 +1,13 @@
+
+silo network test no interfere
+
+cpu: intel i9-7960x closing hyperthread.
+os: ubuntu16.04  linux4.13.0
+
+QPS    MAXREQS    cpu load(%)    95th latency(ms)    max latency(ms)
+2000   200000     15             0.317               29.366
+
+4000   400000     30             0.417               25.420
+
+6000   600000     45             5.656               1158.200
+

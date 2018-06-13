@@ -1,0 +1,15 @@
+
+silo network test interfere cache
+
+cpu: intel i9-7960x  closing hyperthread
+os:  ubuntu16.04  linux4.13.0
+interfere: interfere_cache_random * 7
+
+
+QPS    MAXREQS    cpu load(%)    95th latency(ms)    max latency(ms)
+2000   200000     15             0.338               21.066
+
+4000   400000     30             0.581               29.716
+
+6000   600000     50             11.475              1095.448
+
